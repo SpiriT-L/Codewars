@@ -93,9 +93,9 @@
 
 // console.log(getMessage.call(details));
 
-// [object Object]
-// true
-// false */
+// // [object Object]
+// // true
+// // false */
 //!  'Hello!'
 
 //* =============== Что будет выведено в консоль? ===============
@@ -211,10 +211,10 @@
 // console.log(getThis());
 
 //! [object Window]
-// [object Object]
-// [object Document]
-// [Function]
-// undefined
+// // [object Object]
+// // [object Document]
+// // [Function]
+// // undefined
 
 
 //* =============== Что будет выведено в консоль? ===============
@@ -223,9 +223,9 @@
 
 // console.log(typeof g());
 
-// number
-// undefined
-// function
+// // number
+// // undefined
+// // function
 //! Возникнет ошибка
 
 //* =============== Что будет выведено в консоль? ===============
@@ -233,7 +233,7 @@
 // for(let i = 0; i < 3; i++) {
 //   setTimeout(function(){
 //     console.log(i);
-//   })
+//   }, 1000)
 // }
 
 //! 0 1 2
@@ -250,10 +250,10 @@
 
 // // console.log(foo);
 
-// 2
-// undefined
+// // 2
+// // undefined
 //! ReferenceError: number is not defined
-// ReferenceError: bar is not defined
+// // ReferenceError: bar is not defined
 
 
 //* =============== Что будет выведено в консоль? ===============
@@ -270,10 +270,10 @@
 // var printMessage = user.printMessage;
 // printMessage()
 
-// 'Hello, Peter!'
+// //'Hello, Peter!'
 //! 'Hello, John!'
-// 'Hello, undefined!'
-// Возникнет ошибка
+// // 'Hello, undefined!'
+// // Возникнет ошибка
 
 //* =============== Что будет выведено в консоль? ===============
 
@@ -306,9 +306,8 @@
 
 //* =============== Что будет выведено в консоль? ===============
 
-var a = 1, b = function a(x) {x && a(--x)};
-console.log(a);
-
+// var a = 1, b = function a(x) {x && a(--x)};
+// console.log(a);
 
 // 2
 // 3
@@ -327,10 +326,95 @@ console.log(a);
 // }, 1000)
 
 //! 'John'
-// 'Peter'
-// undefined
-// Возникнет ошибка
+// // 'Peter'
+// // undefined
+// // Возникнет ошибка
 
 //* =============== Укажите правильный способ получения доступа ко всем аргументам функции: ===============
 
+// function foo() {
+//   console.log(Function.getArguments(this));
+// }
 
+// function foo() {
+//   console.log(arguments());
+// }
+
+// function foo() {
+//   console.log(foo.getArguments());
+// }
+
+//! function foo() {
+//!   console.log(this.arguments);
+//! }
+
+// foo()
+
+//* =============== Какой будет результат выполнения кода? ===============
+
+// function foo(a, b) {
+//   return a*b;
+// }
+
+// const bar = foo.bind(null,2);
+// bar(2)
+// console.log(bar(2));
+
+
+// 2
+//! 4
+// NaN
+// Возникнет ошибка
+
+//* =============== Что будет выведено в консоль? ===============
+
+// function getThis() {
+//   return this
+// }
+// console.log(getThis());
+
+//! [object Window]
+// [object Object]
+// [object Document]
+// [Function]
+// undefined
+
+//* =============== Что будет выведено в консоль? ===============
+
+// console.log(message);
+// let message = 'Hello'
+
+// 'Hello'
+// undefined
+//! Возникнет ошибка
+
+//* =============== Что будет выведено в консоль? ===============
+
+// let name = 'John'
+
+// function printName() {
+//   let name = 'Peter';
+//   console.log(name);
+// }
+
+// printName()
+
+// 'John'
+//! 'Peter'
+// Возникнет ошибка
+// undefined
+
+//* =============== Что такое замыкание? ===============
+
+// // Внутренняя область видимости функции
+//!  Способность функции обращаться к внешней области видимости
+// // Способность языка JS создавать блочную область видимости
+// // Способность функции запоминать переменные из внешней области видимости в момент ее создания
+
+//* =============== Укажите, что в JavaScript подвергается всплытию (hoisting)? ===============
+
+// Function expression
+// Function declaration
+// Arrow function
+//! Объявление переменной
+// Присваивание значения переменной
