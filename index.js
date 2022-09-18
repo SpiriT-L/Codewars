@@ -414,7 +414,13 @@
 //* =============== Укажите, что в JavaScript подвергается всплытию (hoisting)? ===============
 
 // Function expression
-// Function declaration
+//! Function declaration
 // Arrow function
 //! Объявление переменной
 // Присваивание значения переменной
+
+for(var i = 0; i < 3; i++) {
+  setTimeout(function(){
+    console.log(i);
+  }, 1000)
+}
