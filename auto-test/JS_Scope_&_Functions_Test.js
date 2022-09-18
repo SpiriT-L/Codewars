@@ -1,14 +1,14 @@
 //? =============== Что будет выведено в консоль? ===============
-'use strict';
+// 'use strict';
 
-const details1 = {
-  message: 'Hello',
-};
-function getMessage() {
-  return this.message;
-}
+// const details1 = {
+//   message: 'Hello',
+// };
+// function getMessage() {
+//   return this.message;
+// }
 
-console.log(getMessage.call(details1));
+// console.log(getMessage.call(details1));
 
 // [object Object]
 // true
@@ -17,10 +17,10 @@ console.log(getMessage.call(details1));
 
 //? =============== Что будет выведено в консоль? ===============
 
-function getThis() {
-  return this
-}
-console.log(getThis());
+// function getThis() {
+//   return this
+// }
+// console.log(getThis());
 
 //! [object Window]
 // [object Object]
@@ -30,10 +30,10 @@ console.log(getThis());
 
 //? =============== Что будет выведено в консоль? ===============
 
-function foo() {
-  return {bar: 1}
-}
-console.log(typeof foo().bar);
+// function foo() {
+//   return {bar: 1}
+// }
+// console.log(typeof foo().bar);
 
 // object
 // string
@@ -42,13 +42,13 @@ console.log(typeof foo().bar);
 
 // =============== Что будет выведено в консоль? ===============
 //? =============== Что будет выведено в консоль? ===============
-const details = {
-  name: 'John!'
-}
-function getMessage(message) {
-  return `${message} ${this.name}`
-}
-console.log(getMessage.apply(details, ['Hello']));
+// const details = {
+//   name: 'John!'
+// }
+// function getMessage(message) {
+//   return `${message} ${this.name}`
+// }
+// console.log(getMessage.apply(details, ['Hello']));
 
 // Возникает ошибка
 // [object Object]
@@ -58,10 +58,10 @@ console.log(getMessage.apply(details, ['Hello']));
 
 //? =============== Что будет выведено в консоль? ===============
 
-function foo() {
-  console.log(this)
-}
-foo.call(null)
+// function foo() {
+//   console.log(this)
+// }
+// foo.call(null)
 
 //! window
 // null
@@ -71,18 +71,18 @@ foo.call(null)
 //? =============== Какие варианты правильно объявляют функцию f, возвращающую сумму двух аргументов? ===============
 
 //! let f = function(a,b) { return a+b }
-//! let f = new Function("a,b", "return a+b")
-//! let f = new Function("a", "b", "return a+b")
+//* let f = new Function("a,b", "return a+b")
+//* let f = new Function("a", "b", "return a+b")
 //! let f = (a, b) => a + b
 // let f = (a, b) => { a + b }
 // console.log(f(2, 3));
 
 //? =============== Что будет выведено в консоль? ===============
 
-for (var i = 0; i < 10; i++) {
-  //...
-}
-console.log(i);
+// for (var i = 0; i < 10; i++) {
+//   //...
+// }
+// console.log(i);
 
 // undefined
 // 9
@@ -91,15 +91,15 @@ console.log(i);
 
 //? =============== Что будет выведено в консоль? ===============
 
-var name = 'John';
+// var name = 'John';
 
-function printName() {
-  console.log(name);
-  var name = 'Peter';
-  console.log(name);
-}
+// function printName() {
+//   console.log(name);
+//   var name = 'Peter';
+//   console.log(name);
+// }
 
-printName();
+// printName();
 
 // 'John' 'Peter'
 // 'Peter' 'Peter'
@@ -108,12 +108,12 @@ printName();
 
 //? =============== Какой будет результат выполнения кода? ===============
 
-(
-  function (a) {
-    arguments[0] = 10
-    return a;
-  }
-)(5)
+// (
+//   function(a) {
+//     arguments[0] = 10
+//     return a;
+//   }
+// )(5)
 
 // 5
 //! 10
@@ -122,26 +122,26 @@ printName();
 
 //! =============== Что будет выведено в консоль? ===============
 //? =============== Что будет выведено в консоль? ===============
-'use strict';
+// 'use strict';
 
-function getThis() {
-  return this
-}
+// function getThis() {
+//   return this
+// }
 
-console.log(getThis());
+// console.log(getThis());
 
-//! [object Window]
+//* [object Window]
 // [object Object]
 // [object Document]
 // [Function]
-//* undefined
+//! undefined
 
 
 //? =============== Что будет выведено в консоль? ===============
 
-let f = function g() {return 23}
+// let f = function g() {return 23}
 
-console.log(typeof g());
+// console.log(typeof g());
 
 // number
 // undefined
@@ -151,23 +151,36 @@ console.log(typeof g());
 // =============== Что будет выведено в консоль? ===============
 //? =============== Что будет выведено в консоль? ===============
 
-for(var i = 0; i < 3; i++) {
-  setTimeout(function(){
-    console.log(i);
-  }, 1000)
-}
+// for(var i = 0; i < 3; i++) {
+//   setTimeout(function(){
+//     console.log(i);
+//   }, 1000)
+// }
 
 // 0 1 2
 //! 3 3 3
 // undefined undefined undefined
 // Возникнет ошибка
 
+//? =============== Что будет выведено в консоль? ===============
+
+// for(let i = 0; i < 3; i++) {
+//   setTimeout(function(){
+//     console.log(i);
+//   }, 1000)
+// }
+
+//! 0 1 2
+// 3 3 3
+// undefined undefined undefined
+// Возникнет ошибка
+
 //? =============== Какой будет результат выполнения кода? ===============
 
-const foo = bar();
-const number = 2;
+// const foo = bar();
+// const number = 2;
 
-function bar() {return number}
+// function bar() {return number}
 
 // console.log(foo);
 
@@ -179,17 +192,17 @@ function bar() {return number}
 
 //? =============== Что будет выведено в консоль? ===============
 
-var name = 'John'
+// var name = 'John'
 
-var user = {
-  name: 'Peter',
-  printMessage() {
-    console.log(`Hello, ${this.name}!`);
-  }
-}
+// var user = {
+//   name: 'Peter',
+//   printMessage() {
+//     console.log(`Hello, ${this.name}!`);
+//   }
+// }
 
-var printMessage = user.printMessage;
-printMessage()
+// var printMessage = user.printMessage;
+// printMessage()
 
 //'Hello, Peter!'
 //! 'Hello, John!'
@@ -198,8 +211,8 @@ printMessage()
 
 //? =============== Что будет выведено в консоль? ===============
 
-console.log(message);
-var message = 'Hello'
+// console.log(message);
+// var message = 'Hello'
 
 
 // 'Hello'
@@ -208,11 +221,11 @@ var message = 'Hello'
 
 //? =============== Что будет выведено в консоль? ===============
 
-printMessage();
+// printMessage();
 
-function printMessage() {
-  console.log('Hello!');
-}
+// function printMessage() {
+//   console.log('Hello!');
+// }
 
 //! 'Hello!'
 // Возникнет ошибка
@@ -227,8 +240,8 @@ function printMessage() {
 
 //? =============== Что будет выведено в консоль? ===============
 
-var a = 1, b = function a(x) {x && a(--x)};
-console.log(a);
+// var a = 1, b = function a(x) {x && a(--x)};
+// console.log(a);
 
 // 2
 // 3
@@ -236,15 +249,15 @@ console.log(a);
 // 0
 
 //? =============== Что будет выведено в консоль? ===============
-let name = 'John';
-function printName() {
-  console.log(name);
-}
+// let name = 'John';
+// function printName() {
+//   console.log(name);
+// }
 
-setTimeout(() => {
-  let name = 'Peter';
-  printName()
-}, 1000)
+// setTimeout(() => {
+//   let name = 'Peter';
+//   printName()
+// }, 1000)
 
 //! 'John'
 // 'Peter'
@@ -275,13 +288,13 @@ setTimeout(() => {
 
 //? =============== Какой будет результат выполнения кода? ===============
 
-function foo(a, b) {
-  return a*b;
-}
+// function foo(a, b) {
+//   return a*b;
+// }
 
-const bar = foo.bind(null,2);
-bar(2)
-console.log(bar(2));
+// const bar = foo.bind(null,2);
+// bar(2)
+// console.log(bar(2));
 
 
 // 2
@@ -304,8 +317,8 @@ console.log(getThis());
 
 //? =============== Что будет выведено в консоль? ===============
 
-console.log(message);
-let message = 'Hello'
+// console.log(message);
+// let message = 'Hello'
 
 // 'Hello'
 // undefined
@@ -313,14 +326,14 @@ let message = 'Hello'
 
 //? =============== Что будет выведено в консоль? ===============
 
-let name = 'John'
+// let name = 'John'
 
-function printName() {
-  let name = 'Peter';
-  console.log(name);
-}
+// function printName() {
+//   let name = 'Peter';
+//   console.log(name);
+// }
 
-printName()
+// printName()
 
 // 'John'
 //! 'Peter'
@@ -330,9 +343,9 @@ printName()
 //? =============== Что такое замыкание? ===============
 
 // Внутренняя область видимости функции
-//!  Способность функции обращаться к внешней области видимости
+//*  Способность функции обращаться к внешней области видимости
 // Способность языка JS создавать блочную область видимости
-// Способность функции запоминать переменные из внешней области видимости в момент ее создания
+//! Способность функции запоминать переменные из внешней области видимости в момент ее создания
 
 //* =============== Укажите, что в JavaScript подвергается всплытию (hoisting)? ===============
 
