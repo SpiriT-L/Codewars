@@ -1,3 +1,18 @@
+// var output = document.getElementById("demo");
+// var slider = document.getElementById("myRange").oninput = function() {
+  // var value = (this.value-this.min)/(this.max-this.min)*100
+
+  // this.style.background = 'liner-gradient(to right, #6b8dff 0%, #ff2a5f ' + value + '%, #fff ' + value + '%, #fff 100%)';
+  // this.style.background = `green`;
+  // this.style.width = `${value}%`;
+
+  // output.innerHTML = this.value;
+  // console.log(value);
+// };
+// console.log(slider);
+
+
+
 // strCount({
 //   first:  "1",
 //   second: "2",
@@ -419,8 +434,21 @@
 //! Объявление переменной
 // Присваивание значения переменной
 
-for(var i = 0; i < 3; i++) {
-  setTimeout(function(){
-    console.log(i);
-  }, 1000)
-}
+// for(var i = 0; i < 3; i++) {
+//   setTimeout(function(){
+//     console.log(i);
+//   }, 1000)
+// }
+
+
+
+//=================================================
+const body = document.querySelector('body')
+
+console.log(body);
+
+
+console.log(document.body.hasAttribute('type'));
+console.log(document.body.getAttribute('type'));
+console.log(document.body.setAttribute('type', 'ky'));
+console.log(document.body.hasAttribute('sky'));
