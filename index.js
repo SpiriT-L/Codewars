@@ -1,17 +1,180 @@
+import './basic-js-ds/stack.js';
+import './array/array.js';
+// import as* from './basic-js-ds/stack.js';
+
+let matrix1 = [
+  [0, 1, 1, 2],
+  [0, 5, 0, 0],
+  [2, 0, 3, 3],
+];
+
+function getMatrixElementsSum(matrix) {
+  let sumMatrix = 0;
+
+  for (let i = 0; i < matrix[0].length; i++) {
+    let sumColumn = 0;
+    for (let j = 0; j < matrix.length; j++) {
+      if (matrix[j][i]) {
+        sumColumn += matrix[j][i];
+        console.log(sumColumn);
+      } else break;
+    }
+    sumMatrix += sumColumn;
+  }
+  return sumMatrix;
+}
+
+// console.log(getMatrixElementsSum(matrix));
+
+// let n = 101  //, the result should be 1 (1 + 0 + 0 = 1)
+let n1 = 91; //, the result should be 1 (9 + 1 = 10, 1 + 0 = 1)
+
+function getSumOfDigits(n) {
+  let sumNamber;
+
+  if (n <= 9) {
+    return n;
+  } else {
+    sumNamber = getSumOfDigits(
+      n
+        .toString()
+        .split('')
+        .reduce((acc, current) => acc + +current, 0)
+    );
+  }
+
+  return sumNamber;
+}
+
+// console.log(getSumOfDigits(n));
+
+let arr = [-1, 150, 190, 170, -1, -1, 160, 180];
+// The result should be [-1, 150, 160, 170, -1, -1, 180, 190]
+
+function sortByHeight(arr) {
+  let result = arr.filter((item) => item != -1).sort((a, b) => a - b);
+
+  return arr.map((item) => (item === -1 ? -1 : result.shift()));
+}
+// console.log(sortByHeight(arr));
+
+let matrix = [
+  [true, false, false],
+  [false, true, false],
+  [false, false, false],
+];
+
+//  [
+//   [1, 2, 1],
+//   [2, 1, 1],
+//   [1, 1, 1]
+//  ]
+
+function minesweeper(matrix) {
+  let matrixCopy = matrix.map((item) => item.map((_) => 0));
+  let matrixColumn = matrix[0].length;
+  let matrixRows = matrix.length;
+
+  for (let i = 0; i < matrixRows; i++) {
+    for (let j = 0; j < matrixColumn; j++) {
+      let sumN = 0;
+      let minN = i - 1 < 1 ? 0 : i - 1;
+      let maxN = i + 1 >= matrixRows ? matrixRows - 1 : i + 1;
+      let minM = j - 1 < 1 ? 0 : j - 1;
+      let maxM = j + 1 >= matrixColumn ? matrixColumn - 1 : j + 1;
+
+      for (let n = minN; n <= maxN; n++) {
+        let sumM = 0;
+        for (let m = minM; m <= maxM; m++) {
+          !(n === i && m === j) ? (sumM += matrix[n][m]) : null;
+        }
+        sumN += sumM;
+      }
+
+      matrixCopy[i][j] = sumN;
+    }
+  }
+  return matrixCopy;
+}
+
+// console.log(minesweeper(matrix));
+
+// let n = 00-1B-63-84-45-E6 //, the output should be true.
+
+function isMAC48Address(n) {
+  let macAdress = n.match(/[0-9A-F]{2}/g);
+
+  if (macAdress.length === 6 && macAdress === n.join('-')) {
+    return true;
+  }
+
+  return false;
+}
+
+// console.log(isMAC48Address(n));
+
+let email = 'prettyandsimple@example.com'; //, the output should be 'example.com'
+
+function getEmailDomain(email) {
+  let result = email.split('@');
+
+  return result.pop();
+}
+
+// console.log(getEmailDomain(email));
+
+let names = ['file', 'file', 'image', 'file(1)', 'file'];
+//  output should be ["file", "file(1)", "image", "file(1)(1)", "file(2)"]
+
+function renameFiles(names) {
+  let result = [];
+
+  names.forEach((name) => {
+    if (!result.includes(name)) {
+      result.push(name);
+    } else {
+      let i = 1;
+      while (result.includes(`${name}(${i})`)) i++;
+      result.push(`${name}(${i})`);
+    }
+  });
+  return result;
+}
+
+// console.log(renameFiles(names));
+
+let str = 'aabbbc'; // should return 2a3bc
+
+function encodeLine(str) {
+  // console.log(str);
+  let result = '';
+  let counter = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    counter++;
+    if (str[i] !== str[i + 1]) {
+      counter === 1 && (counter = '');
+      result += counter + str[i];
+      counter = 0;
+    }
+  }
+  return result;
+}
+
+// console.log(encodeLine(str));
+
 // var output = document.getElementById("demo");
 // var slider = document.getElementById("myRange").oninput = function() {
-  // var value = (this.value-this.min)/(this.max-this.min)*100
+// var value = (this.value-this.min)/(this.max-this.min)*100
 
-  // this.style.background = 'liner-gradient(to right, #6b8dff 0%, #ff2a5f ' + value + '%, #fff ' + value + '%, #fff 100%)';
-  // this.style.background = `green`;
-  // this.style.width = `${value}%`;
+// this.style.background = 'liner-gradient(to right, #6b8dff 0%, #ff2a5f ' + value + '%, #fff ' + value + '%, #fff 100%)';
+// this.style.background = `green`;
+// this.style.width = `${value}%`;
 
-  // output.innerHTML = this.value;
-  // console.log(value);
+// output.innerHTML = this.value;
+// console.log(value);
 // };
 // console.log(slider);
-
-
 
 // strCount({
 //   first:  "1",
@@ -215,7 +378,6 @@
 //! 10
 // undefined
 
-
 //* =============== Что будет выведено в консоль? ===============
 // 'use strict';
 
@@ -230,7 +392,6 @@
 // // [object Document]
 // // [Function]
 // // undefined
-
 
 //* =============== Что будет выведено в консоль? ===============
 
@@ -270,7 +431,6 @@
 //! ReferenceError: number is not defined
 // // ReferenceError: bar is not defined
 
-
 //* =============== Что будет выведено в консоль? ===============
 
 // var name = 'John'
@@ -295,7 +455,6 @@
 // console.log(message);
 // var message = 'Hello'
 
-
 // 'Hello'
 //! undefined
 // Возникнет ошибка
@@ -317,7 +476,6 @@
 // Все переменные передаются по ссылке
 // Все переменные передаются по значению
 //! Примитивы передаются по значению, а объекты - по ссылке
-
 
 //* =============== Что будет выведено в консоль? ===============
 
@@ -374,7 +532,6 @@
 // const bar = foo.bind(null,2);
 // bar(2)
 // console.log(bar(2));
-
 
 // 2
 //! 4
@@ -440,15 +597,12 @@
 //   }, 1000)
 // }
 
-
-
 //=================================================
-const body = document.querySelector('body')
+const body = document.querySelector('body');
 
-console.log(body);
+// console.log(body);
 
-
-console.log(document.body.hasAttribute('type'));
-console.log(document.body.getAttribute('type'));
-console.log(document.body.setAttribute('type', 'ky'));
-console.log(document.body.hasAttribute('sky'));
+// console.log(document.body.hasAttribute('type'));
+// console.log(document.body.getAttribute('type'));
+// console.log(document.body.setAttribute('type', 'ky'));
+// console.log(document.body.hasAttribute('sky'));
